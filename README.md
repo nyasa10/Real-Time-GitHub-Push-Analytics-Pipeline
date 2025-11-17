@@ -1,6 +1,6 @@
 # Real-Time-GitHub-Push-Analytics-Pipeline
 
-A fully local, production-grade streaming pipeline that captures **millions of public GitHub events per day**, filters and enriches PushEvents in real time using ksqlDB, sinks them into **Amazon Redshift Serverless** for analytics, and sends **instant email alerts** when a repository receives unusually high activity (greater than 10 pushes in 5 minutes).
+A fully local, production-grade end-to-end streaming pipeline that captures **millions of public GitHub events per day**, filters and enriches PushEvents in real time using ksqlDB, sinks them into **Amazon Redshift Serverless** for analytics, and sends **instant email alerts** when a repository receives unusually high activity (greater than 10 pushes in 5 minutes).
 
 Built from scratch with **Apache Kafka 3.9.1 (KRaft)**, **ksqlDB**, and **Kafka Connect** — everything runs on your laptop (WSL2) while delivering fault-tolerant, exactly-once processing and easy horizontal scaling.
 
