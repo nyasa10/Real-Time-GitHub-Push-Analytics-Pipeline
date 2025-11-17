@@ -29,10 +29,10 @@ flowchart TD
     A[GitHub API Events] -->|REST| B[Python Producer]
     
     B --> C[Kafka Cluster 3 Brokers]
-    C --> D[github-events-raw JSON]
+    C --> D[github-events-raw]
     
     D --> E[ksqlDB]
-    E --> F[github-push-transformed-new AVRO]
+    E --> F[github-push-transformed-new]
     
     
     F --> H[Kafka Connect]
