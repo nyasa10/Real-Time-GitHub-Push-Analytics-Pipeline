@@ -2,26 +2,6 @@
 
 ### Tech Stack & Tools
 
-**Core Streaming Platform**
-
-• Apache Kafka (3-broker cluster with replication & fault tolerance)  
-• Confluent Schema Registry + Avro serialization  
-• ksqlDB (real-time stream processing & transformations)  
-• Kafka Connect + JDBC Sink Connector  
-
-**Data Warehouse & Analytics**
-
-• Amazon Redshift Serverless  
-
-**Programming & Automation**
-
-• Python 3 (producer, consumer, email alerting)  
-• REST API integration (GitHub Events API)  
-
-**Infrastructure & Ops** 
-
-• Ubuntu / WSL2 (local development environment)  
-
 **Features Implemented**
 
 • Fault-tolerant 3-node Kafka cluster 
@@ -34,7 +14,7 @@
 
 | Category | Technologies |
 |----------|--------------|
-| **Core Streaming Platform** | **Apache Kafka** (3-broker cluster, replication factor 3, acks=all) <br> **Confluent Schema Registry** + **Avro** serialization <br> **ksqlDB** (real-time stream processing & transformations) <br> **Kafka Connect** + **JDBC Sink Connector** |
+| **Core Streaming Platform** | **Apache Kafka** (3-broker cluster with replication & fault tolerance) <br> **Confluent Schema Registry** + **Avro** serialization <br> **ksqlDB** (real-time stream processing & transformations) <br> **Kafka Connect** + **JDBC Sink Connector** |
 | **Data Warehouse & Analytics** | **Amazon Redshift Serverless** |
 | **Programming & Automation** | **Python 3** (producer, consumer, email alerting) <br> **GitHub Events REST API** |
 | **Infrastructure & Ops** | **Ubuntu / WSL2** (local dev) |
