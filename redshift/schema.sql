@@ -8,3 +8,5 @@ CREATE TABLE github_pushes (
     repo_name VARCHAR(100),
     payload_ref VARCHAR(255)
 );
+
+SELECT * FROM github_pushes ORDER BY id DESC LIMIT 5;
