@@ -9,4 +9,4 @@ CREATE TABLE github_pushes (
     payload_ref VARCHAR(255)
 );
 
-SELECT * FROM github_pushes ORDER BY id DESC LIMIT 5;
+SELECT * FROM github_pushes ORDER BY id LIMIT 5;
