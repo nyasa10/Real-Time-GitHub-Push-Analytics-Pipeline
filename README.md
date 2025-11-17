@@ -22,27 +22,39 @@
 ```mermaid
 flowchart TD
     %% ==== Sources ====
-    A[GitHub API<br/>Public Events] -->|REST Polling| B[Python Producer<br/>github_producer.py]
+    A[GitHub API
+Public Events] -->|REST Polling| B[Python Producer
+github_producer.py]
 
     %% ==== Kafka Cluster ====
-    B --> C[Kafka Cluster<br/>3 Brokers<br/>(9092, 9094, 9095)]
-    C -->|Topic| D[github-events-raw<br/>JSON]
+    B --> C[Kafka Cluster
+3 Brokers
+(9092, 9094, 9095)]
+    C -->|Topic| D[github-events-raw
+JSON]
 
     %% ==== ksqlDB ====
-    D --> E[ksqlDB<br/>~/KafkaProject/ksqldb-0.29.0]
+    D --> E[ksqlDB
+~/KafkaProject/ksqldb-0.29.0]
     E -->|Filter & Transform| F[github-events-intermediate]
-    F -->|PushEvent Only| G[github-push-transformed-new<br/>AVRO + Schema Registry]
+    F -->|PushEvent Only| G[github-push-transformed-new
+AVRO + Schema Registry]
 
     %% ==== Schema Registry ====
-    H[Schema Registry<br/>port 8081] <--> G
+    H[Schema Registry
+port 8081] <--> G
 
     %% ==== Sink ====
-    G --> I[Kafka Connect<br/>JDBC Sink]
-    I --> J[Amazon Redshift Serverless<br/>Table: github_pushes]
+    G --> I[Kafka Connect
+JDBC Sink]
+    I --> J[Amazon Redshift Serverless
+Table: github_pushes]
 
     %% ==== Alerting ====
-    G --> K[Python Consumer<br/>email_alert_consumer.py]
-    K --> L[SMTP Email Alerts<br/>High Push Activity]
+    G --> K[Python Consumer
+email_alert_consumer.py]
+    K --> L[SMTP Email Alerts
+High Push Activity]
 
     %% ==== Styling ====
     classDef src   fill:#4CAF50,color:#fff
