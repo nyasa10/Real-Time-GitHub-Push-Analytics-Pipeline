@@ -26,8 +26,7 @@
 
 • Fault-tolerant 3-node Kafka cluster 
 • Exactly-once semantics (idempotent producer)  
-• Event-time processing with created_at timestamps from GitHub
-
+• Event-time processing with timestamps from GitHub
 • Schema evolution support via Avro + Schema Registry  
 • Real-time email alerting on high-activity repositories  
 • 1M+ events/day scalable pipeline
