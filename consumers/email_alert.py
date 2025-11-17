@@ -9,7 +9,7 @@ consumer = Consumer(conf)
 consumer.subscribe(['PUSH_COUNTS'])
 
 SENDER_EMAIL = 'skywalk123.9@gmail.com'
-SENDER_PASSWORD = 'ddjr rqld htlq vpkz'
+SENDER_PASSWORD = 'abcd abcd abcd abcd'
 RECIPIENT_EMAIL = 'skywalk123.9@gmail.com'
 SMTP_SERVER = 'smtp.gmail.com'
 SMTP_PORT = 587
