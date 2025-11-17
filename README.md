@@ -26,7 +26,7 @@ flowchart TD
     B --> C[Kafka Cluster 3 Brokers]
     C --> D[github-events-raw JSON]
     
-    D --> E[ksqlDB Transform]
+    D --> E[ksqlDB]
     E --> F[github-push-transformed-new AVRO]
     
     G[Schema Registry] <--> F
