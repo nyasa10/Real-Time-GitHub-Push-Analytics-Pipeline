@@ -4,17 +4,20 @@
     "connector.class": "io.confluent.connect.jdbc.JdbcSinkConnector",
     "tasks.max": "1",
     "topics": "github-push-transformed-new",
-    "connection.url": "jdbc:redshift://your-cluster.us-west-2.redshift.amazonaws.com:5439/yourdb?user=youruser&password=yourpass",
+    "connection.url": "jdbc:redshift://your-cluster.ap-south-1.redshift.amazonaws.com:5439/yourdb?user=youruser&password=yourpass",
     "connection.user": "youruser",
     "connection.password": "yourpass",
     "auto.create": "false",
     "insert.mode": "insert",
-    "pk.mode": "record_key",
+    "pk.mode": "record_value",
+    "pk.fields": "id",
     "fields.whitelist": "id,type,actor_name,actor_login,repo_name,payload_ref",
     "value.converter": "org.apache.kafka.connect.json.JsonConverter",
     "value.converter.schemas.enable": "false",
     "key.converter": "org.apache.kafka.connect.storage.StringConverter",
     "table.name.format": "github_pushes"
+    "errors.tolerance": "all",
+    "errors.log.enable": "true"
   }
 }
 
