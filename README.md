@@ -21,50 +21,30 @@
 
 ```mermaid
 flowchart TD
-    %% ==== Sources ====
-    A[GitHub API
-Public Events] -->|REST Polling| B[Python Producer
-github_producer.py]
-
-    %% ==== Kafka Cluster ====
-    B --> C[Kafka Cluster
-3 Brokers
-(9092, 9094, 9095)]
-    C -->|Topic| D[github-events-raw
-JSON]
-
-    %% ==== ksqlDB ====
-    D --> E[ksqlDB
-~/KafkaProject/ksqldb-0.29.0]
-    E -->|Filter & Transform| F[github-events-intermediate]
-    F -->|PushEvent Only| G[github-push-transformed-new
-AVRO + Schema Registry]
-
-    %% ==== Schema Registry ====
-    H[Schema Registry
-port 8081] <--> G
-
-    %% ==== Sink ====
-    G --> I[Kafka Connect
-JDBC Sink]
-    I --> J[Amazon Redshift Serverless
-Table: github_pushes]
-
-    %% ==== Alerting ====
-    G --> K[Python Consumer
-email_alert_consumer.py]
-    K --> L[SMTP Email Alerts
-High Push Activity]
-
-    %% ==== Styling ====
-    classDef src   fill:#4CAF50,color:#fff
-    classDef kafka fill:#FF9800,color:#fff
-    classDef proc  fill:#2196F3,color:#fff
-    classDef sink  fill:#9C27B0,color:#fff
-    classDef alert fill:#F44336,color:#fff
-
+    A[GitHub API Events] -->|REST| B[Python Producer]
+    
+    B --> C[Kafka Cluster 3 Brokers]
+    C --> D[github-events-raw JSON]
+    
+    D --> E[ksqlDB Transform]
+    E --> F[github-push-transformed-new AVRO]
+    
+    G[Schema Registry] <--> F
+    
+    F --> H[Kafka Connect JDBC]
+    H --> I[Redshift Table]
+    
+    F --> J[Python Email Consumer]
+    J --> K[Email Alerts]
+    
+    classDef src fill:#4CAF50
+    classDef kafka fill:#FF9800
+    classDef proc fill:#2196F3
+    classDef sink fill:#9C27B0
+    classDef alert fill:#F44336
+    
     class A src
     class C kafka
-    class E,F,G,H proc
-    class I,J sink
-    class K,L alert
+    class E,F,G proc
+    class H,I sink
+    class J,K alert
