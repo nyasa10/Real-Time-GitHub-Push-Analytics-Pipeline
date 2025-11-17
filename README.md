@@ -31,10 +31,10 @@ flowchart TD
     
     G[Schema Registry] <--> F
     
-    F --> H[Kafka Connect JDBC]
+    F --> H[Kafka Connect]
     H --> I[Redshift Table]
     
-    F --> J[Python Email Consumer]
+    F --> J[Email Alert Consumer]
     J --> K[Email Alerts]
     
     classDef src fill:#4CAF50
